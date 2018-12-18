@@ -1,17 +1,23 @@
 import React from "react";
 import { createAction, createReducer } from "redux-starter-kit";
 import { store } from "./store";
+import { makeAction } from "./action";
+import { connect } from "react-redux";
 
-export default class Mycomponent extends React.Component {
+class Mycomponent extends React.Component {
   constructor(props) {
     super(props);
+    console.log("props", props);
   }
 
   performOperation() {
     console.log("function called...");
-    let myactionType = createAction("reducer");
-    let myaction = myactionType(5); //sending the payload here
-    console.log(myaction);
+    // let myactionType = createAction("reducer");
+    // let myaction = myactionType(5); //sending the payload here
+    // console.log(myaction);
+
+    makeAction();
+    console.log("props", this.props);
   }
 
   render() {
@@ -25,3 +31,11 @@ export default class Mycomponent extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    counter: state
+  };
+};
+
+export default connect(mapStateToProps)(Mycomponent);
