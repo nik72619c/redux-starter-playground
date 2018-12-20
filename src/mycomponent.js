@@ -1,13 +1,12 @@
 import React from "react";
-import { createAction, createReducer } from "redux-starter-kit";
-import { store } from "./store";
+
 import { makeAction } from "./action";
 import { connect } from "react-redux";
 
 class Mycomponent extends React.Component {
   constructor(props) {
     super(props);
-    console.log("props", props);
+    console.log("props", props.counter);
   }
 
   performOperation() {
@@ -17,7 +16,9 @@ class Mycomponent extends React.Component {
     // console.log(myaction);
 
     makeAction();
-    console.log("props", this.props);
+    console.log("props.counter", this.props.counter);
+    let counter = this.props.counter;
+    console.log("counter is ", counter);
   }
 
   render() {
@@ -33,6 +34,7 @@ class Mycomponent extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log("mapStateToProps ", state);
   return {
     counter: state
   };
