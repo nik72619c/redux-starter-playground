@@ -15,7 +15,8 @@ class Mycomponent extends React.Component {
     // let myaction = myactionType(5); //sending the payload here
     // console.log(myaction);
 
-    makeAction();
+    // let action=makeAction();
+    this.props.makeAction();
     console.log("props.counter", this.props.counter);
     let counter = this.props.counter;
     console.log("counter is ", counter);
@@ -40,4 +41,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Mycomponent);
+const mapDispatchToProps = {
+  makeAction
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Mycomponent);
