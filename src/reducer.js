@@ -6,7 +6,8 @@ var initialState = { val: 0 };
 function caseFunction(state, action) {
   console.log("inside reducer case function");
   let newState = { val: 0 };
-  newState.val = 3;
+
+  newState.val = state.val + action.payload;
   console.log("state is " + state + "and action is " + action);
   console.log("reducer functioning fine...");
 

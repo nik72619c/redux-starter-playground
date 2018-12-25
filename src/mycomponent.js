@@ -1,5 +1,4 @@
 import React from "react";
-
 import { makeAction } from "./action";
 import { connect } from "react-redux";
 
@@ -17,9 +16,7 @@ class Mycomponent extends React.Component {
 
     // let action=makeAction();
     this.props.makeAction();
-    console.log("props.counter", this.props.counter);
-    let counter = this.props.counter;
-    console.log("counter is ", counter);
+    // console.log("props.counter", this.props.counter);
   }
 
   render() {
@@ -27,17 +24,17 @@ class Mycomponent extends React.Component {
       <div>
         this is my component for redux-starter-kit !<br />
         <button onClick={this.performOperation.bind(this)}>
-          click to see the redux-starter in action
+          click to like !
         </button>
       </div>
     );
   }
 }
-
+//  export default Mycomponent;
 const mapStateToProps = state => {
   console.log("mapStateToProps ", state);
   return {
-    counter: state
+    counter: state.val
   };
 };
 
